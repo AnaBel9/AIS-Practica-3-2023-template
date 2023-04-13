@@ -14,4 +14,14 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-      - run: mvn test
+      - name: Test Unit
+        run: mvn test
+
+      - name: Test Integracion
+        run: mvn test
+
+      - name: Test REST
+        run: mvn test
+
+      - name: Test Selenium
+        run: mvn test
