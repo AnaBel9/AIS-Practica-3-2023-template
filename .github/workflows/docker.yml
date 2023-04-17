@@ -1,8 +1,9 @@
 name: ejercicio2
 
 on:
-  schedule:
-  - cron: '0 2 * * *' # run at 2 AM UTC
+  push:
+  #schedule:
+  #- cron: '0 2 * * *' # run at 2 AM UTC
 
 jobs:
   test:
@@ -15,13 +16,13 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
       - name: Test Unit
-        run: mvn test
+        run: mvn test -Dtest=ReviewServiceUnitaryTest
 
       - name: Test Integracion
-        run: mvn test
+        run: mvn test -Dtest=OpenLibraryServiceIntegrationTest
 
       - name: Test REST
-        run: mvn test
-
+        run: mvn test -Dtest=RestTest
+        
       - name: Test Selenium
-        run: mvn test
+        run: mvn test -Dtest=SeleniumTest
